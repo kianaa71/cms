@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Allow access to certain directories
+    RewriteRule ^(assets|uploads) - [L]
+
+    # Allow access to certain file types
+    RewriteRule \.(jpg|jpeg|png|gif|css|js)$ - [L]
+
+    # Allow access to index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [L]
+</IfModule>
